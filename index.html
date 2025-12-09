@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>College Helper Portal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>College Helper Portal</h1>
+    <div class="user">Student Dashboard</div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <button data-panel="attendance" class="active">Attendance</button>
+      <button data-panel="materials">Study Materials</button>
+      <button data-panel="timetable">Timetable Generator</button>
+      <button data-panel="chat">Mini Chat</button>
+    </aside>
+
+    <section class="content">
+      <!-- Attendance -->
+      <div id="panel-attendance" class="panel">
+        <h2>Attendance Tracker</h2>
+        <form id="add-student-form" class="small-form">
+          <input id="studentId" placeholder="Student ID" required />
+          <input id="studentName" placeholder="Name" required />
+          <button type="submit">Add Student</button>
+        </form>
+        <div id="students-list"></div>
+      </div>
+
+      <!-- Materials -->
+      <div id="panel-materials" class="panel hidden">
+        <h2>Study Materials</h2>
+        <form id="upload-form" enctype="multipart/form-data" class="small-form">
+          <input name="title" id="material-title" placeholder="Title" />
+          <input type="file" name="file" id="material-file" required />
+          <button type="submit">Upload</button>
+        </form>
+        <ul id="materials-list" class="materials"></ul>
+      </div>
+
+      <!-- Timetable -->
+      <div id="panel-timetable" class="panel hidden">
+        <h2>Timetable Generator</h2>
+        <form id="timetable-form" class="small-form">
+          <div id="subjects-container">
+            <div class="subject-row">
+              <input placeholder="Subject name" class="subj-name" />
+              <input type="number" placeholder="Hours/week" class="subj-hours" min="0" />
+              <button type="button" class="remove-subj">✕</button>
+            </div>
+          </div>
+          <button id="add-subj" type="button">+ Add Subject</button>
+          <button type="submit">Generate Timetable</button>
+        </form>
+        <div id="timetable-output"></div>
+      </div>
+
+      <!-- Chat -->
+      <div id="panel-chat" class="panel hidden">
+        <h2>Mini Chat Support</h2>
+        <div id="chat-log" class="chat-log"></div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-name" placeholder="Your name" />
+          <input id="chat-input" placeholder="Message..." autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Built with ❤️ — College Helper Portal demo</footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
