@@ -1,0 +1,67 @@
+:root{
+  --accent:#2b8cff;
+  --muted:#666;
+  --bg:#f5f7fb;
+  --card:#fff;
+  --radius:10px;
+  --shadow: 0 6px 20px rgba(21,28,57,0.08);
+  --glass: rgba(255,255,255,0.6);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#f7fbff 0%,var(--bg) 100%);
+  color:#14213d;
+  min-height:100vh;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 28px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+  position:sticky; top:0;
+  z-index:10;
+}
+
+.container{display:flex; gap:20px; padding:24px; max-width:1200px; margin:18px auto;}
+
+.sidebar{
+  width:200px;
+  background:var(--card);
+  border-radius:12px;
+  padding:12px;
+  box-shadow:var(--shadow);
+  display:flex; flex-direction:column; gap:8px;
+}
+
+.sidebar button{
+  border:0; background:transparent; padding:10px; text-align:left; border-radius:8px; cursor:pointer; font-weight:600;
+}
+.sidebar button.active{ background:linear-gradient(90deg,var(--accent),#6ec1ff); color:white; }
+
+.content{ flex:1; min-height:480px; }
+
+.panel{
+  background:var(--card); padding:18px; border-radius:12px; box-shadow:var(--shadow);
+  transition:all .2s ease;
+}
+
+.hidden{ display:none; }
+.small-form{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.small-form input[type="text"], .small-form input[type="number"], .small-form input{ padding:8px 10px; border-radius:8px; border:1px solid #eee; }
+.small-form button{ background:var(--accent); color:white; border:0; padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+.materials{ list-style:none; padding:0; margin:0; }
+.materials li{ padding:10px; border-bottom:1px solid #f0f4ff; display:flex; justify-content:space-between; }
+
+.chat-log{
+  height:300px; overflow:auto; background:#fbfdff; padding:10px; border-radius:8px; margin-bottom:8px;
+}
+.chat-entry{ margin-bottom:8px; padding:6px 8px; border-radius:8px; background:linear-gradient(90deg,#f7f9ff,#fff); }
+
+.footer{ text-align:center; padding:14px; color:var(--muted); }
